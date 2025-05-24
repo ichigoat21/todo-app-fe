@@ -28,7 +28,9 @@ export const SignUp = () => {
     return <div className="h-screen flex flex-col  items-center gap-4 items-center justify-center">
         <div className= "m-20 p-6 border shadow-md rounded-md flex gap-2">
         <div>
+            {/* @ts-ignore */}
           <InputBox reference={userRef} placeholder="Username" />
+           {/* @ts-ignore */}
           <InputBox reference={passRef} placeholder="Password"/>
           <div className="flex justify-center items-center mt-3">
           <Button onclick={signup} text={"Sign Up"}/>

@@ -102,7 +102,7 @@ export const Dashboard = () => {
     }
   }
 
-  function updated(num: number, arrayInd: number) {
+  function updated( arrayInd: number) {
     // @ts-ignore - title might not exist on todo item
     setValue(todo[arrayInd].title);
     setEditIndex(arrayInd);
