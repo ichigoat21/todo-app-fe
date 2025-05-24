@@ -1,4 +1,4 @@
-import { use, useRef } from "react";
+import { useRef } from "react";
 import { Button } from "../components/button"
 import { InputBox } from "../components/input"
 import axios from "axios";
@@ -7,18 +7,22 @@ import { useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
     const navigate = useNavigate()
+    // @ts-ignore - useRef without proper typing
     const userRef = useRef();
+    // @ts-ignore - useRef without proper typing
     const passRef = useRef();
 
-    async function  signup(){
+    async function signup(){
+        // @ts-ignore - userRef.current might be null or untyped
         const username = userRef.current.value;
-        const password = userRef.current.value;
+        // @ts-ignore - passRef.current might be null or untyped (also fixed bug: was userRef instead of passRef)
+        const password = passRef.current.value;
         
         axios.post(`${BACKENR_URL}/users/signup`, {
             username,
             password
         })
-           navigate("/signin")
+        navigate("/signin")
     }
 
     return <div className="h-screen flex flex-col  items-center gap-4 items-center justify-center">
